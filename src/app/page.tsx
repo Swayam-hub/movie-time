@@ -1,21 +1,25 @@
-import { getPopularMovies, getUpcomingMovies } from "@/lib/getMovies";
-import Slider from "@/components/Carousel";
-import LoadMore from "@/components/LoadMore";
+import { BackgroundBeamsWithCollisionDemo } from "@/components/BackgroundBeams";
+import Hero from "@/components/Hero";
+import Navbar from "@/components/Navbar";
+import { CardHoverEffectDemo } from "@/components/ProjectCards";
+import { ExpandableCardDemo } from "@/components/ProjectSection";
+import Skills from "@/components/Skills";
+import { TimelineDemo } from "@/components/Timeline";
+import WorkExperience from "@/components/WorkExperience";
+import Image from "next/image";
 
-export default async function Home() {
-  const data = await getPopularMovies(1);
-  const upcomingMovies = await getUpcomingMovies();
-  console.log('utl', process.env.MONGODB_URL);
-  
+export default function Home() {
   return (
-    <main>
-        <div className="flex items-center justify-center">
-          <Slider upcomingMovies={upcomingMovies} className="w-72 md:w-full max-w-5xl" />
-        </div>
-        <section className="grid grid-cols-2 md:grid-cols-4">
-         {data}
-        <LoadMore />
-        </section>
+    <main className="min-h-screen">
+      <Hero />
+      {/* <WorkExperience /> */}
+      {/* <Skills />
+      <h2 className="font-bold text-6xl mt-64 w-full text-center">PROJECTS</h2>
+      <div className="mt-16">
+        {/* <CardHoverEffectDemo /> */}
+       {/* <ExpandableCardDemo />
+      <TimelineDemo /> */}
+      {/* </div> */}
     </main>
   );
 }

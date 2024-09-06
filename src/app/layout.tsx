@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/Navbar";
-import { ClerkProvider } from "@clerk/nextjs";
+import { TracingBeam } from "@/components/ui/tracing-beam";
+import Navbar from "@/components/Navbar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,19 +17,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ClerkProvider>
-      <html lang="en">
-        <body className={inter.className}>
-          <div className="bg-[#0F1117] min-h-screen">
-            {/* <div className="dark"> */}
-            <Header />
-            {/* </div> */}
-            <div className="max-w-7xl mx-auto text-white">
-            {children}
-            </div>
-          </div>
+    <html lang="en">
+      <body className={inter.className}>
+        {/* <Navbar /> */}
+        <div className="">
+          <TracingBeam>
+        {children}
+          </TracingBeam>
+        </div>
         </body>
-      </html>
-    </ClerkProvider>
+    </html>
   );
 }
